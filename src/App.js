@@ -8,6 +8,9 @@ function App() {
 
     const popularNews = useSelector(store => store?.newsReducer?.popularNews)
     const latestNews = useSelector(store => store?.newsReducer?.latestNews)
+    const popularNewsError = useSelector(store => store?.errorsReducer?.popularNewsError)
+    const latestNewsError = useSelector(store => store?.errorsReducer?.latestNewsError)
+
 
     const getHandleNews = () => {
         dispatch(getNewsAC())
@@ -16,8 +19,8 @@ function App() {
   return (
     <div>
       <button onClick={getHandleNews}>Get News!</button>
-        <News news={popularNews} title={'popular news'}/>
-        <News news={latestNews} title={'latestNews'}/>
+        <News news={popularNews} title={'popular news'} error={popularNewsError}/>
+        <News news={latestNews} title={'latestNews'} error={latestNewsError}/>
     </div>
   );
 }
