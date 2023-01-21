@@ -8,10 +8,10 @@ const initialState = {
 const newsReducer = (state = initialState, {type, payload}) => {
     switch (type) {
         case SET_LATEST_NEWS: {
-            return {...state, latestNews: [...state.latestNews, ...payload]}
+            return {...state, latestNews: payload}
         }
         case SET_POPULAR_NEWS: {
-            return {...state, popularNews: [...state.popularNews, ...payload]}
+            return {...state, popularNews: payload}
         }
         default: return state
     }
